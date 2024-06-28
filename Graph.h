@@ -10,9 +10,7 @@
 class Graph
 {
 private:
-	int m_V;
-	double m_Density;
-	double* m_DistRange;
+	
 	
 	// Random number generation
 	std::default_random_engine randEngine;
@@ -22,11 +20,18 @@ public:
 	Graph(); // default values
 	Graph(int& V, double& density, double* distRange);
 	~Graph();
-	std::list<int>* m_AdjList;
+	std::vector<std::list<int>> m_AdjList;
 	std::map<std::pair<int, int>, double> m_Weights;
+	int m_V;
+	double m_Density;
+	double* m_DistRange;
 	void addAllEdges();
+	void printAdjList();
+	double getWeight(int u, int v) const;
 private:
 	void addEdge(int x, int y);  // Adds single edge , needs to be iterated
 	void setEdgeValue(int x, int y, double weight);
+	
+
 	
 };
